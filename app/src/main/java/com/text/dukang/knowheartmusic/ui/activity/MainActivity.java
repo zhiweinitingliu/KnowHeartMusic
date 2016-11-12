@@ -40,24 +40,23 @@ public class MainActivity extends BaseFragmentActivity {
         initTab();
     }
 
+    /**
+     * 给底部导航设置数据，并设置选中状态
+     */
     private void initTab() {
         Tab tab_chain = new Tab(FragmentChain.class, R.string.chain, R.drawable.select_icon_chain);
         Tab tab_client = new Tab(FragmentClient.class, R.string.client, R.drawable.select_icon_client);
         Tab tab_market = new Tab(FragmentMarket.class, R.string.market, R.drawable.select_icon_market);
         Tab tab_more = new Tab(FragmentMore.class, R.string.more, R.drawable.select_icon_more);
-
         mTabs.add(tab_chain);
         mTabs.add(tab_client);
         mTabs.add(tab_market);
         mTabs.add(tab_more);
-
         tabhost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
         for (Tab tab : mTabs) {
-
             TabHost.TabSpec tabSpec = tabhost.newTabSpec(getString(tab.getTitle()));
             tabSpec.setIndicator(biuldIndicator(tab));
-
             tabhost.addTab(tabSpec, tab.getFragment(), null);
         }
 
@@ -65,6 +64,9 @@ public class MainActivity extends BaseFragmentActivity {
         tabhost.setCurrentTab(0);
     }
 
+    /**
+     * 给底部导航设置数据
+     */
     private View biuldIndicator(Tab tab) {
         View view = View.inflate(this, R.layout.tab_indicator, null);
         ImageView icon_tab = (ImageView) view.findViewById(R.id.icon_tab);

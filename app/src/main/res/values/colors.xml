@@ -8,4 +8,11 @@
     <color name="rgb_169_169_169">#A9A9A9</color>
     <color name="rgb_238_130_238">#EE82EE</color>
     <color name="rgb_255_000_000">#FF0000</color>
+    <color name="rgb_255_127_000">#FF7F00</color>
+    <color name="rgb_255_255_255">#FFFFFF</color>
+
+
+
+    <!--加透明的颜色-->
+    <color name="rgb_aa_255_255_255">#aaFFFFFF</color>
 </resources>

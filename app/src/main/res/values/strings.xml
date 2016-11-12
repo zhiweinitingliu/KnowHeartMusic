@@ -4,4 +4,6 @@
     <string name="client">客户</string>
     <string name="market">营销</string>
     <string name="more">更多</string>
+    <string name="title_chain_name">商家中心</string>
+
 </resources>

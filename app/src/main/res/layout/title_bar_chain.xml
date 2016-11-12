@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@color/rgb_255_127_000">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="@string/title_chain_name"
+        android:textColor="@color/rgb_255_255_255"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/abc_ic_menu_share_mtrl_alpha" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/share"
+        android:src="@drawable/abc_ic_menu_selectall_mtrl_alpha" />
+
+</RelativeLayout>

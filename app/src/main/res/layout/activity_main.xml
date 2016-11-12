@@ -30,7 +30,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1px"
             android:layout_marginBottom="5dp"
-            android:background="@color/rgb_034_000_000" />
+            android:background="@color/rgb_169_169_169" />
 
         <com.text.dukang.knowheartmusic.ui.view.FragmentTabHost
             android:id="@+id/tabhost"

@@ -12,8 +12,10 @@ import com.text.dukang.knowheartmusic.R;
 import com.text.dukang.knowheartmusic.model.Tab;
 
 import com.text.dukang.knowheartmusic.ui.fragment.BaseFragmentActivity;
-import com.text.dukang.knowheartmusic.ui.fragment.FragmentCategory;
-import com.text.dukang.knowheartmusic.ui.fragment.FragmentHome;
+import com.text.dukang.knowheartmusic.ui.fragment.FragmentClient;
+import com.text.dukang.knowheartmusic.ui.fragment.FragmentMarket;
+import com.text.dukang.knowheartmusic.ui.fragment.FragmentChain;
+import com.text.dukang.knowheartmusic.ui.fragment.FragmentMore;
 import com.text.dukang.knowheartmusic.ui.view.FragmentTabHost;
 
 import java.util.ArrayList;
@@ -39,10 +41,15 @@ public class MainActivity extends BaseFragmentActivity {
     }
 
     private void initTab() {
-        Tab tab_home = new Tab(FragmentHome.class, R.string.home, R.mipmap.ic_launcher);
-        Tab tab_category = new Tab(FragmentCategory.class, R.string.category, R.mipmap.ic_launcher);
-        mTabs.add(tab_home);
-        mTabs.add(tab_category);
+        Tab tab_chain = new Tab(FragmentChain.class, R.string.chain, R.drawable.select_icon_chain);
+        Tab tab_client = new Tab(FragmentClient.class, R.string.client, R.drawable.select_icon_client);
+        Tab tab_market = new Tab(FragmentMarket.class, R.string.market, R.drawable.select_icon_market);
+        Tab tab_more = new Tab(FragmentMore.class, R.string.more, R.drawable.select_icon_more);
+
+        mTabs.add(tab_chain);
+        mTabs.add(tab_client);
+        mTabs.add(tab_market);
+        mTabs.add(tab_more);
 
         tabhost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
@@ -62,10 +69,8 @@ public class MainActivity extends BaseFragmentActivity {
         View view = View.inflate(this, R.layout.tab_indicator, null);
         ImageView icon_tab = (ImageView) view.findViewById(R.id.icon_tab);
         TextView txt_indicator = (TextView) view.findViewById(R.id.txt_indicator);
-
         icon_tab.setImageResource(tab.getIcon());
         txt_indicator.setText(getString(tab.getTitle()));
-
         return view;
     }
 

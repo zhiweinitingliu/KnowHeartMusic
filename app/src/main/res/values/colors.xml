@@ -3,6 +3,9 @@
     <color name="colorPrimary">#EE82EE</color>
     <color name="colorPrimaryDark">#EE82EE</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="rgb_238_130_238">#EE82EE</color>
     <color name="rgb_034_000_000">#EE82EE</color>
+    <color name="rgb_105_105_105">#696969</color>
+    <color name="rgb_169_169_169">#A9A9A9</color>
+    <color name="rgb_238_130_238">#EE82EE</color>
+    <color name="rgb_255_000_000">#FF0000</color>
 </resources>

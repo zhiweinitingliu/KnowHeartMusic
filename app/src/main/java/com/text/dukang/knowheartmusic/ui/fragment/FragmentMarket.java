@@ -10,14 +10,14 @@ import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 
 /**
  * Created by wdk on 2016/11/10.
- * 功能介绍：
+ * 功能介绍：营销
  */
 
-public class FragmentCategory extends BaseFragment {
+public class FragmentMarket extends BaseFragment {
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        TextView textView=new TextView(getActivity());
-        textView.setText("categoryFragment");
+        TextView textView = new TextView(getActivity());
+        textView.setText("marketFragment");
         return textView;
     }
 

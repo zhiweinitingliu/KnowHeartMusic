@@ -9,15 +9,15 @@ import android.widget.TextView;
 import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 
 /**
- * Created by wdk on 2016/11/10.
- * 功能介绍：
+ * Created by wdk on 2016/11/12.
+ * 功能介绍：更多
  */
 
-public class FragmentHome extends BaseFragment {
+public class FragmentMore extends BaseFragment {
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        TextView textView=new TextView(getActivity());
-        textView.setText("homefragment");
+        TextView textView = new TextView(getActivity());
+        textView.setText("moreFragment");
         return textView;
     }
 

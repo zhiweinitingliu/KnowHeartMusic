@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.text.dukang.knowheartmusic.R;
 import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 
 /**
@@ -16,9 +17,8 @@ import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 public class FragmentMarket extends BaseFragment {
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText("marketFragment");
-        return textView;
+        View view = inflater.inflate(R.layout.fragment_market, container, false);
+        return view;
     }
 
     @Override

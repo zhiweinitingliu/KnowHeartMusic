@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.text.dukang.knowheartmusic.R;
 import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 
 /**
@@ -16,9 +17,8 @@ import com.text.dukang.knowheartmusic.ui.base.BaseFragment;
 public class FragmentClient extends BaseFragment {
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText("clientFragment");
-        return textView;
+        View view = inflater.inflate(R.layout.fragment_client, container, false);
+        return view;
     }
 
     @Override

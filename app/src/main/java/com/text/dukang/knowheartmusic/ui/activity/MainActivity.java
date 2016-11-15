@@ -1,6 +1,8 @@
 package com.text.dukang.knowheartmusic.ui.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -17,15 +19,23 @@ import com.text.dukang.knowheartmusic.ui.fragment.FragmentMarket;
 import com.text.dukang.knowheartmusic.ui.fragment.FragmentChain;
 import com.text.dukang.knowheartmusic.ui.fragment.FragmentMore;
 import com.text.dukang.knowheartmusic.ui.view.FragmentTabHost;
+import com.text.dukang.knowheartmusic.util.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseFragmentActivity {
 
+    private DrawerLayout drawerLayout;
     private FrameLayout realtabcontent;
     private FragmentTabHost tabhost;
+    private NavigationView navigationView;
     private List<Tab> mTabs;
+    int alpha_main = 0;
+    int alpha_draw = 112;
+    int alpha = 255;
+    private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
+    private int mStatusBarColor;
 
     @Override
     protected void setContent(Bundle savedInstanceState) {
@@ -34,10 +44,22 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     protected void initView() {
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         realtabcontent = (FrameLayout) findViewById(R.id.realtabcontent);
         tabhost = (FragmentTabHost) findViewById(R.id.tabhost);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        setStatusBar();
+//        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, (DrawerLayout) findViewById(R.id.drawerlayout), R.color.rgb_255_127_000, alpha_draw);
+//        StatusBarUtil.setColor(MainActivity.this, R.color.rgb_255_127_000, alpha_main);
+//        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, drawerLayout, getResources().getColor(R
+//                .color.colorPrimary), mAlpha);
         mTabs = new ArrayList<>(2);
         initTab();
+    }
+
+    protected void setStatusBar() {
+        mStatusBarColor = getResources().getColor(R.color.colorPrimary);
+        StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawerlayout), mStatusBarColor, alpha_main);
     }
 
     /**

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.text.dukang.knowheartmusic"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -30,5 +30,4 @@ dependencies {
     compile 'com.yanzhenjie.nohttp:okhttp:1.1.0'
     compile 'com.alibaba:fastjson:1.1.54.android'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
 }

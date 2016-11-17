@@ -3,6 +3,7 @@ package com.text.dukang.knowheartmusic.ui.activity;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -20,11 +21,18 @@ import com.text.dukang.knowheartmusic.ui.fragment.FragmentChain;
 import com.text.dukang.knowheartmusic.ui.fragment.FragmentMore;
 import com.text.dukang.knowheartmusic.ui.view.FragmentTabHost;
 import com.text.dukang.knowheartmusic.util.StatusBarUtil;
+import com.text.dukang.knowheartmusic.util.nohttp.CallServer;
+import com.text.dukang.knowheartmusic.util.nohttp.HttpListener;
+import com.yolanda.nohttp.NoHttp;
+import com.yolanda.nohttp.RequestMethod;
+import com.yolanda.nohttp.rest.Request;
+import com.yolanda.nohttp.rest.Response;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseFragmentActivity {
+    private static final String TAG = "MainActivity";
 
     private DrawerLayout drawerLayout;
     private FrameLayout realtabcontent;
@@ -36,6 +44,8 @@ public class MainActivity extends BaseFragmentActivity {
     int alpha = 255;
     private int mAlpha = StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA;
     private int mStatusBarColor;
+
+    private CallServer callServer;
 
     @Override
     protected void setContent(Bundle savedInstanceState) {
@@ -49,10 +59,6 @@ public class MainActivity extends BaseFragmentActivity {
         tabhost = (FragmentTabHost) findViewById(R.id.tabhost);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         setStatusBar();
-//        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, (DrawerLayout) findViewById(R.id.drawerlayout), R.color.rgb_255_127_000, alpha_draw);
-//        StatusBarUtil.setColor(MainActivity.this, R.color.rgb_255_127_000, alpha_main);
-//        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, drawerLayout, getResources().getColor(R
-//                .color.colorPrimary), mAlpha);
         mTabs = new ArrayList<>(2);
         initTab();
     }
@@ -101,5 +107,25 @@ public class MainActivity extends BaseFragmentActivity {
     @Override
     protected void initData() {
 
+        callServer = CallServer.getRequestInstance();
+        String url = "http://ceshi.jybd.cn/chainsell/index.php?act=login&op=dologin";
+        Request request = NoHttp.createStringRequest(url, RequestMethod.POST);
+        request.add("user", "fengqinglu");
+        request.add("pwd", "123456");
+        request.add("client", "android");
+
+        callServer.add(context, 101, request, dataCallBack, false, false);
     }
+
+    HttpListener dataCallBack = new HttpListener() {
+        @Override
+        public void onSucceed(int what, Response response) {
+            Log.e(TAG, "onSucceed: tongji--data:::" + response.get().toString());
+        }
+
+        @Override
+        public void onFailed(int what, Response response) {
+
+        }
+    };
 }

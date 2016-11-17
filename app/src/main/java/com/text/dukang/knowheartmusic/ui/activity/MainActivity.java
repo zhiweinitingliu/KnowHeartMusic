@@ -65,7 +65,7 @@ public class MainActivity extends BaseFragmentActivity {
 
     protected void setStatusBar() {
         mStatusBarColor = getResources().getColor(R.color.colorPrimary);
-        StatusBarUtil.setColorForDrawerLayout(this, (DrawerLayout) findViewById(R.id.drawerlayout), mStatusBarColor, alpha_main);
+        StatusBarUtil.setColorForDrawerLayout(context, (DrawerLayout) findViewById(R.id.drawerlayout), mStatusBarColor, alpha_main);
     }
 
     /**
@@ -107,25 +107,6 @@ public class MainActivity extends BaseFragmentActivity {
     @Override
     protected void initData() {
 
-        callServer = CallServer.getRequestInstance();
-        String url = "http://ceshi.jybd.cn/chainsell/index.php?act=login&op=dologin";
-        Request request = NoHttp.createStringRequest(url, RequestMethod.POST);
-        request.add("user", "fengqinglu");
-        request.add("pwd", "123456");
-        request.add("client", "android");
-
-        callServer.add(context, 101, request, dataCallBack, false, false);
     }
 
-    HttpListener dataCallBack = new HttpListener() {
-        @Override
-        public void onSucceed(int what, Response response) {
-            Log.e(TAG, "onSucceed: tongji--data:::" + response.get().toString());
-        }
-
-        @Override
-        public void onFailed(int what, Response response) {
-
-        }
-    };
 }

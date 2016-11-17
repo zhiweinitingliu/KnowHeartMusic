@@ -15,8 +15,8 @@ import com.text.dukang.knowheartmusic.util.StatusBarUtil;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    public Context context;
-    int alpha_main = 0;
+    public BaseActivity context;
+    public int alpha_main = 0;
     public int mStatusBarColor;
 
     @Override
@@ -38,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 设置状态栏的颜色
      */
-    private void setStatusBarColor() {
+    public void setStatusBarColor() {
         mStatusBarColor = getResources().getColor(R.color.colorPrimary);
         StatusBarUtil.setColor(BaseActivity.this,mStatusBarColor, alpha_main);
     }

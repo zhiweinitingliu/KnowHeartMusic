@@ -18,6 +18,8 @@ import com.text.dukang.knowheartmusic.ui.view.StatusBarView;
  *
  * Email: chjie.jaeger@gmail.com
  * GitHub: https://github.com/laobie
+ *
+ * 用来修改状态栏的颜色
  */
 public class StatusBarUtil {
 

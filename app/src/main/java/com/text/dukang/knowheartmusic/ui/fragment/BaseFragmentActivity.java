@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentActivity;
 
 public abstract class BaseFragmentActivity extends FragmentActivity {
 
-    public Context context;
+    public BaseFragmentActivity context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

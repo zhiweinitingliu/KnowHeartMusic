@@ -6,6 +6,7 @@ import android.util.Log;
 import com.github.mikephil.charting.charts.LineChart;
 import com.text.dukang.knowheartmusic.R;
 import com.text.dukang.knowheartmusic.ui.base.BaseActivity;
+import com.text.dukang.knowheartmusic.util.SpUtil;
 import com.text.dukang.knowheartmusic.util.nohttp.CallServer;
 import com.text.dukang.knowheartmusic.util.nohttp.HttpListener;
 import com.yolanda.nohttp.NoHttp;
@@ -23,7 +24,7 @@ public class ChainOrderStatisticActivity extends BaseActivity {
 
     private LineChart lineChart;
     private CallServer callServer;
-//    "appkey":"5eda100684453dba7579533b46748993"
+    private String appkey;
 
     @Override
     protected void setContent(Bundle savedInstanceState) {
@@ -37,12 +38,18 @@ public class ChainOrderStatisticActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        appkey = SpUtil.getSp(context).getString("appkey", "");
+        Log.e(TAG, "initData: appkey------" + appkey);
+        if (appkey == null || appkey.length() <= 0) {
+            return;
+        }
+
         callServer = CallServer.getRequestInstance();
         String url = "http://ceshi.jybd.cn/chainsell/index.php?";
         Request request = NoHttp.createStringRequest(url, RequestMethod.GET);
         request.add("act", "chain_order_statis");
         request.add("op", "index");
-        request.add("appkey", "5eda100684453dba7579533b46748993");
+        request.add("appkey", appkey);
         request.add("orderState", "20");
         request.add("statisType", "day");
         request.add("search_time", "2016-10-25");

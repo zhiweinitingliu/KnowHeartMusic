@@ -23,8 +23,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.MainActivity"/>
-        <activity android:name=".ui.activity.ChainOrderStatisticActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity
+            android:name=".ui.activity.ChainOrderStatisticActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.activity.BuyManagerActivity" />
     </application>
 
 </manifest>
